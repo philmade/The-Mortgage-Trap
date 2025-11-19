@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Mortgage Trap</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-dark': '#0f172a',
+              'brand-card': '#1e293b',
+              'debt-red': '#ef4444',
+              'equity-green': '#10b981',
+              'interest-orange': '#f97316',
+            },
+            animation: {
+              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'float': 'float 3s ease-in-out infinite',
+              'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+              'shake': 'shake 0.5s cubic-bezier(.36,.07,.19,.97) both infinite',
+              'angry-pulse': 'angryPulse 2s infinite',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              shake: {
+                '10%, 90%': { transform: 'translate3d(-1px, 0, 0)' },
+                '20%, 80%': { transform: 'translate3d(2px, 0, 0)' },
+                '30%, 50%, 70%': { transform: 'translate3d(-4px, 0, 0)' },
+                '40%, 60%': { transform: 'translate3d(4px, 0, 0)' }
+              },
+              angryPulse: {
+                '0%': { boxShadow: '0 0 0 0 rgba(239, 68, 68, 0.7)' },
+                '70%': { boxShadow: '0 0 0 10px rgba(239, 68, 68, 0)' },
+                '100%': { boxShadow: '0 0 0 0 rgba(239, 68, 68, 0)' }
+              }
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      body {
+        background-color: #0f172a;
+        color: #e2e8f0;
+        font-family: 'Inter', sans-serif;
+      }
+      /* Custom scrollbar for sleek look */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0f172a; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #334155; 
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #475569; 
+      }
+      
+      .wave-container {
+        position: relative;
+        overflow: hidden;
+        transform: translate3d(0, 0, 0);
+      }
+      
+      .wave {
+        opacity: 0.4;
+        position: absolute;
+        top: 3%;
+        left: 50%;
+        background: #f97316; /* Interest Orange */
+        width: 200%;
+        height: 200%;
+        margin-left: -100%;
+        transform-origin: 50% 48%;
+        border-radius: 43%;
+        animation: drift 6000ms infinite linear;
+      }
+
+      .wave.-three {
+        animation: drift 7000ms infinite linear;
+        opacity: 0.1;
+        background: #ef4444;
+      }
+
+      .wave.-two {
+        animation: drift 9000ms infinite linear;
+        opacity: 0.2;
+        background: #c2410c;
+      }
+
+      .wave.filled {
+         background: #10b981; /* Equity Green */
+      }
+
+      @keyframes drift {
+        from { transform: rotate(0deg); }
+        from { transform: rotate(360deg); }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.4.1",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
